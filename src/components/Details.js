@@ -1,23 +1,30 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native"
-import { Button } from "react-native-web";
 
-const Car = ({ car, navigation }) => {
+const Detail = ({ detail, navigation }) => {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.text}>{car.carName}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{car.carOwner}</Text>
+                <Text style={styles.text}>{detail.carName}</Text>
             </View>
             <View style={styles.center}>
-                <Image source={{ uri: car.image }} style={styles.image} />
+                <Image source={{ uri: detail.image }} style={styles.image} />
             </View>
-            <Button
-                title="Sobre"
-                onPress={() => navigation.navigate("Detalhes")}
-            />
+            <View>
+                <Text style={styles.text2}>{detail.carOwner}</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>{detail.garage_name}</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>{detail.date}</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>{detail.first_time}</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>{detail.last_time}</Text>
+            </View>
         </View>
     );
 };
@@ -53,4 +60,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Car;
+export default Detail;

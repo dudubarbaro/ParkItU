@@ -11,7 +11,7 @@ const Garage = ({ garage, navigation }) => {
       <View style={styles.center}>
         <Image source={{ uri: garage.image }} style={styles.image} />
       </View>
-      <Button title="Mais" onPress={() => navigation.navigate("Cars")} />
+      <Button title="Mais" onPress={() => navigation.navigate("Recentes")} />
     </View>
   );
 };
