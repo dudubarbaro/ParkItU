@@ -63,7 +63,7 @@ const details = [
     carOwner: "Carlos Cardozo",
     image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
     date: "24/04/22",
-    frist_time: "16:00",
+    first_time: "16:00",
     last_time: "17:00",
     garage_name: "Estacionamento da Bento",
   }
@@ -93,13 +93,13 @@ const ListCars = ({ navigation }) => {
   );
 };
 
-const ListDetails = ({ navigation }) => {
+const ListDetails = () => {
   const [detailslist, setDetailsList] = useState(details);
 
   return (
     <ScrollView style={styles.scroll}>
       {detailslist.map((detail, index) => (
-        <Car key={index} detail={detail} navigation={navigation} />
+        <Detail key={index} detail={detail} />
       ))}
     </ScrollView>
   );

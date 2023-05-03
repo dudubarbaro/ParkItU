@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native"
 
-const Detail = ({ detail, navigation }) => {
+const Detail = ({ detail }) => {
     return (
         <View style={styles.container}>
             <View>
