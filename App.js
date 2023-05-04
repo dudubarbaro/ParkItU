@@ -110,7 +110,13 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+      /*
+        screenOptions={{
+          headerShown: false
+        }}
+        */
+      >
         <Stack.Screen name="Minhas Garagens" component={ListGarages} />
         <Stack.Screen name="Recentes" component={ListCars} />
         <Stack.Screen name="Detalhes" component={ListDetails} />
