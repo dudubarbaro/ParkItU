@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import { Button } from "react-native-web";
+import { Button } from "react-native";
 
 const Garage = ({ garage, navigation }) => {
   return (
