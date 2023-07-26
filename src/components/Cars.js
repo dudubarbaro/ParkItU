@@ -11,8 +11,11 @@ const Car = ({ car, navigation }) => {
             <View>
                 <Text style={styles.text2}>{car.carOwner}</Text>
             </View>
+            <View>
+                <Text style={styles.text2}>{car.licensePlate}</Text>
+            </View>
             <View style={styles.center}>
-                <Image source={{ uri: car.image }} style={styles.image} />
+                <Image source={{ uri: car.carImage }} style={styles.carImage} />
             </View>
             <Button
                 title="Sobre"
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingTop: 20,
     },
-    image: {
+    carImage: {
         width: "70%",
         height: 300,
         resizeMode: "stretch",

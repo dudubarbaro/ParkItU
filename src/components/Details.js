@@ -8,22 +8,25 @@ const Detail = ({ detail }) => {
                 <Text style={styles.text}>{detail.carName}</Text>
             </View>
             <View style={styles.center}>
-                <Image source={{ uri: detail.image }} style={styles.image} />
+                <Image source={{ uri: detail.carImage }} style={styles.carImage} />
             </View>
             <View>
                 <Text style={styles.text2}>{detail.carOwner}</Text>
             </View>
             <View>
-                <Text style={styles.text2}>{detail.garage_name}</Text>
+                <Text style={styles.text2}>{detail.licensePlate}</Text>
+            </View>
+            <View>
+                <Text style={styles.text2}>{detail.garageName}</Text>
             </View>
             <View>
                 <Text style={styles.text2}>{detail.date}</Text>
             </View>
             <View>
-                <Text style={styles.text2}>{detail.first_time}</Text>
+                <Text style={styles.text2}>{detail.firstTime}</Text>
             </View>
             <View>
-                <Text style={styles.text2}>{detail.last_time}</Text>
+                <Text style={styles.text2}>{detail.lastTime}</Text>
             </View>
         </View>
     );
@@ -43,7 +46,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingTop: 20,
     },
-    image: {
+    carImage: {
         width: "70%",
         height: 300,
         resizeMode: "stretch",
