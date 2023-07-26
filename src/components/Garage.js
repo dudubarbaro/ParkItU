@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import { Button } from "react-native-web";
+import { Button } from "react-native";
 
 const Garage = ({ garage, navigation }) => {
   return (
@@ -9,7 +9,7 @@ const Garage = ({ garage, navigation }) => {
         <Text style={styles.text}>{garage.name}</Text>
       </View>
       <View style={styles.center}>
-        <Image source={{ uri: garage.image }} style={styles.image} />
+        <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
       </View>
       <Button title="Mais" onPress={() => navigation.navigate("Recentes")} />
     </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 20,
   },
-  image: {
+  imageGarage: {
     width: "70%",
     height: 300,
     resizeMode: "stretch",

@@ -5,55 +5,62 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Garage from "./src/components/Garage";
 import Car from "./src/components/Cars";
 import Detail from "./src/components/Details";
+// import Header from "./src/components/Header";
 
 const garages = [
   {
     name: "Estacionamento da Bento",
-    image:
-      "https://www.independenciaveiculoseden.com.br/img/pgoogle/capa/full-ec6a965ba159ea5e8e2fda5c8394b7d7.jpg",
+    imageGarage:
+      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     name: "Estacionamento da Bento",
-    image:
-      "https://www.independenciaveiculoseden.com.br/img/pgoogle/capa/full-ec6a965ba159ea5e8e2fda5c8394b7d7.jpg",
+    imageGarage:
+      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     name: "Estacionamento da Bento",
-    image:
-      "https://www.independenciaveiculoseden.com.br/img/pgoogle/capa/full-ec6a965ba159ea5e8e2fda5c8394b7d7.jpg",
+    imageGarage:
+      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
 ];
 
 const cars = [
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
   {
     carName: "Honda Civic",
+    licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
   },
 ];
 
@@ -61,11 +68,12 @@ const details = [
   {
     carName: "Honda Civic",
     carOwner: "Carlos Cardozo",
-    image: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+    licensePlate: "MIH8505",
+    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
     date: "24/04/22",
-    first_time: "16:00",
-    last_time: "17:00",
-    garage_name: "Estacionamento da Bento",
+    firstTime: "16:00",
+    lastTime: "17:00",
+    garageName: "Estacionamento da Bento",
   }
 ]
 
@@ -111,12 +119,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-      /*
         screenOptions={{
           headerShown: false
         }}
-        */
       >
+        {/* <Stack.Screen name="Header" component={Header} /> */}
         <Stack.Screen name="Minhas Garagens" component={ListGarages} />
         <Stack.Screen name="Recentes" component={ListCars} />
         <Stack.Screen name="Detalhes" component={ListDetails} />
