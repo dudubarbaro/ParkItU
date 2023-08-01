@@ -3,26 +3,16 @@ import { StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Garage from "./src/components/Garage";
-import Car from "./src/components/Cars";
-import Detail from "./src/components/Details";
+import Car from "./src/components/Car";
+import Detail from "./src/components/Detail";
 // import Header from "./src/components/Header";
 
 const garages = [
   {
-    name: "Estacionamento da Bento",
+    nameGarage: "Estacionamento da Bento",
     imageGarage:
       "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    name: "Estacionamento da Bento",
-    imageGarage:
-      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    name: "Estacionamento da Bento",
-    imageGarage:
-      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
+  }
 ];
 
 const cars = [
@@ -31,37 +21,7 @@ const cars = [
     licensePlate: "MIH8505",
     carOwner: "Carlos Cardozo",
     carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    carName: "Honda Civic",
-    licensePlate: "MIH8505",
-    carOwner: "Carlos Cardozo",
-    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    carName: "Honda Civic",
-    licensePlate: "MIH8505",
-    carOwner: "Carlos Cardozo",
-    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    carName: "Honda Civic",
-    licensePlate: "MIH8505",
-    carOwner: "Carlos Cardozo",
-    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    carName: "Honda Civic",
-    licensePlate: "MIH8505",
-    carOwner: "Carlos Cardozo",
-    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
-  {
-    carName: "Honda Civic",
-    licensePlate: "MIH8505",
-    carOwner: "Carlos Cardozo",
-    carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-  },
+  }
 ];
 
 const details = [

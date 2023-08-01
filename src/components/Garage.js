@@ -6,7 +6,7 @@ const Garage = ({ garage, navigation }) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.text}>{garage.name}</Text>
+        <Text style={styles.text}>{garage.nameGarage}</Text>
       </View>
       <View style={styles.center}>
         <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
