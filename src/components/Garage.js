@@ -4,14 +4,16 @@ import { Button } from "react-native";
 
 const Garage = ({ garage, navigation }) => {
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.text}>{garage.nameGarage}</Text>
+    <View>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.text}>{garage.nameGarage}</Text>
+        </View>
+        <View style={styles.center}>
+          <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
+        </View>
+        <Button title="Ver Carros" onPress={() => navigation.navigate("Carros")} />
       </View>
-      <View style={styles.center}>
-        <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
-      </View>
-      <Button title="Mais" onPress={() => navigation.navigate("Recentes")} />
     </View>
   );
 };
@@ -19,9 +21,9 @@ const Garage = ({ garage, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 35,
-    backgroundColor: "#f5f5f5",
-    width: "90%",
-    borderRadius: 30,
+    backgroundColor: "white",
+    width: "100%",
+    borderRadius: 20,
     alignSelf: "center",
   },
   center: {
@@ -32,14 +34,17 @@ const styles = StyleSheet.create({
   },
   imageGarage: {
     width: "70%",
-    height: 300,
+    height: 200,
     resizeMode: "stretch",
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 5,
+    margin: 10,
     color: "black",
+    // alignItems: "center",
+    // justifyContent: "center",
+    alignSelf: "center",
   },
 });
 
