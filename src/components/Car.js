@@ -10,7 +10,7 @@ const Car = ({ car, navigation }) => {
             <View style={styles.addButton}>
                 <Button
                     title="+"
-                // onPress={() => navigation.navigate("NewCar")}
+                    onPress={() => navigation.navigate("Novo Carro")}
                 />
                 {/* <AddCar /> */}
             </View>
