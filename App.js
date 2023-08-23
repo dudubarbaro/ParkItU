@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Garage from "./src/components/Garage";
 import Car from "./src/components/Car";
 import Detail from "./src/components/Detail";
-// import Header from "./src/components/Header";  
+// import { Header } from "react-native/Libraries/NewAppScreen";
+// import Header from "./src/components/Header";
 
 const garages = [
   {
@@ -78,14 +79,14 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
+      {/* <Header /> */}
       <Stack.Navigator
-        screenOptions={{
-          headerShown: false
-        }}
+      // screenOptions={{
+      //   headerShown: false
+      // }}
       >
-        {/* <Stack.Screen name="Header" component={Header} /> */}
-        <Stack.Screen name="Minhas Garagens" component={ListGarages} />
-        <Stack.Screen name="Recentes" component={ListCars} />
+        <Stack.Screen name="Garagem" component={ListGarages} />
+        <Stack.Screen name="Carros" component={ListCars} />
         <Stack.Screen name="Detalhes" component={ListDetails} />
       </Stack.Navigator>
     </NavigationContainer>
