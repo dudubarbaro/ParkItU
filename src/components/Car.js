@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native"
+import { View, Text, Image, StyleSheet, StatusBar } from "react-native"
 import { Button } from "react-native";
-// import AddCar from "./ButtonAddCar";
 
 const Car = ({ car, navigation }) => {
     return (
@@ -12,7 +11,6 @@ const Car = ({ car, navigation }) => {
                     title="+"
                     onPress={() => navigation.navigate("Novo Carro")}
                 />
-                {/* <AddCar /> */}
             </View>
             <View style={styles.container}>
                 <View>
@@ -27,7 +25,7 @@ const Car = ({ car, navigation }) => {
                     <Image source={{ uri: car.carImage }} style={styles.carImage} />
                 </View>
                 <Button
-                    title="mais informações"
+                    title="Mais Informações"
                     onPress={() => navigation.navigate("Detalhes")}
                 />
             </View>
@@ -183,6 +181,7 @@ const Car = ({ car, navigation }) => {
                     title="mais informações"
                     onPress={() => navigation.navigate("Detalhes")}
                 />
+                <StatusBar style="auto" />
             </View>
         </View >
     );
@@ -212,8 +211,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         margin: 10,
         color: "black",
-        // alignItems: "center",
-        // justifyContent: "center",
         alignSelf: "center",
     },
     text2: {

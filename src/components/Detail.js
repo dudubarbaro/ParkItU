@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Button } from "react-native"
+import { View, Text, Image, StyleSheet, Button, StatusBar } from "react-native"
 
 const Detail = ({ detail, navigation }) => {
     return (
@@ -21,6 +21,7 @@ const Detail = ({ detail, navigation }) => {
                 <View style={styles.delButton}>
                     <Button title="Remover"
                         onPress={() => navigation.navigate("")} />
+                    <StatusBar style="auto" />
                 </View>
             </View>
         </View>
@@ -51,8 +52,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         margin: 10,
         color: "black",
-        // alignItems: "center",
-        // justifyContent: "center",
         alignSelf: "center",
         color: "black",
     },

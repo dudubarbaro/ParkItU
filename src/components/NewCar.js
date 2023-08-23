@@ -1,5 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native"
+import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar } from "react-native"
+
+import { useEffect, useState } from 'react';
+
+const [newcar, setNewCars] = useState([]);
+
+useEffect(async () => {
+    const data = await newcarService.getAllNewCars();
+    setNewCars(data);
+}, []);
+
+async function saveNewCars() {
+    const data = await newcarService.getAllNewCars();
+    setNewCars(data);
+}
 
 const NewCar = ({ newcar, navigation }) => {
     return (
@@ -7,7 +21,7 @@ const NewCar = ({ newcar, navigation }) => {
             <View style={styles.form}>
                 <Text style={styles.h1}
                 >Cadastro</Text>
-                {newcar.map((newcar) => (
+                {newcars.map((newcar) => (
                     <TextInput
                         key={newcar.id}
                         style={styles.text}
@@ -37,9 +51,9 @@ const NewCar = ({ newcar, navigation }) => {
                 <View>
                     <Button
                         title='Salvar'
-                        onPress={() => navigation.navigate("Carros")}
+                        onPress={() => saveNewCars()}
                     />
-                    {/* <StatusBar style="auto" /> */}
+                    <StatusBar style="auto" />
                 </View>
             </View>
         </View>
@@ -63,7 +77,6 @@ const styles = StyleSheet.create({
         margin: 45,
         justifyContent: 'center',
         alignContent: 'center',
-        // alignItems: 'center',
         backgroundColor: '#fff',
         justifyContent: 'center'
     },
