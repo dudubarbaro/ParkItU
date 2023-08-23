@@ -1,19 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar } from "react-native"
 
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
-const [newcar, setNewCars] = useState([]);
 
-useEffect(async () => {
-    const data = await newcarService.getAllNewCars();
-    setNewCars(data);
-}, []);
+// useEffect(async () => {
+//     const data = await newcarService.getAllNewCars();
+//     setNewCars(data);
+// }, []);
 
-async function saveNewCars() {
-    const data = await newcarService.getAllNewCars();
-    setNewCars(data);
-}
+// async function saveNewCars() {
+//     const data = await newcarService.getAllNewCars();
+//     setNewCars(data);
+// }
+
+// const [newcar, setNewCars] = useState([]);
 
 const NewCar = ({ newcar, navigation }) => {
     return (
