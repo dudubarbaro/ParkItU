@@ -5,8 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Garage from "./src/components/Garage";
 import Car from "./src/components/Car";
 import Detail from "./src/components/Detail";
-// import { Header } from "react-native/Libraries/NewAppScreen";
-// import Header from "./src/components/Header";
+import NewCar from "./src/components/NewCar";
 
 const garages = [
   {
@@ -36,7 +35,9 @@ const details = [
     lastTime: "17:00",
     garageName: "Estacionamento da Bento",
   }
-]
+];
+
+const newcars = [];
 
 const ListGarages = ({ navigation }) => {
   const [garageslist, setGaragesList] = useState(garages);
@@ -74,20 +75,28 @@ const ListDetails = () => {
   );
 };
 
+const ListNewCars = () => {
+  const [newcarslist, setNewCarsList] = useState(newcars);
+
+  return (
+    <ScrollView style={styles.scroll}>
+      {newcarslist.map((newcar, index) => (
+        <Detail key={index} newcar={newcar} />
+      ))}
+    </ScrollView>
+  );
+};
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Header /> */}
-      <Stack.Navigator
-      // screenOptions={{
-      //   headerShown: false
-      // }}
-      >
+      <Stack.Navigator>
         <Stack.Screen name="Garagem" component={ListGarages} />
         <Stack.Screen name="Carros" component={ListCars} />
         <Stack.Screen name="Detalhes" component={ListDetails} />
+        <Stack.Screen name="Novo Carro" component={ListNewCars} />
       </Stack.Navigator>
     </NavigationContainer>
   );
