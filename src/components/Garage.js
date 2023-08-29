@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, StatusBar } from "react-native";
 import { Button } from "react-native";
 
 const Garage = ({ garage, navigation }) => {
@@ -13,6 +13,7 @@ const Garage = ({ garage, navigation }) => {
           <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
         </View>
         <Button title="Ver Carros" onPress={() => navigation.navigate("Carros")} />
+        <StatusBar style="auto" />
       </View>
     </View>
   );
@@ -42,8 +43,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     margin: 10,
     color: "black",
-    // alignItems: "center",
-    // justifyContent: "center",
     alignSelf: "center",
   },
 });

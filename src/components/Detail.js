@@ -1,21 +1,28 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native"
+import { View, Text, Image, StyleSheet, Button, StatusBar } from "react-native"
 
-const Detail = ({ detail }) => {
+const Detail = ({ detail, navigation }) => {
     return (
-        <View style={styles.container}>
-            <View>
-                <Text style={styles.text}>{detail.carName}</Text>
-            </View>
-            <View style={styles.center}>
-                <Image source={{ uri: detail.carImage }} style={styles.carImage} />
-            </View>
-            <View style={styles.text2}>
-                <Text>{detail.carOwner}</Text>
-                <Text>{detail.licensePlate}</Text>
-                <Text>{detail.garageName}</Text>
-                <Text>{detail.date}</Text>
-                <Text>{detail.firstTime} - {detail.lastTime}</Text>
+        <View>
+            <View style={styles.container}>
+                <View>
+                    <Text style={styles.text}>{detail.carName}</Text>
+                </View>
+                <View style={styles.center}>
+                    <Image source={{ uri: detail.carImage }} style={styles.carImage} />
+                </View>
+                <View style={styles.text2}>
+                    <Text>{detail.carOwner}</Text>
+                    <Text>{detail.licensePlate}</Text>
+                    <Text>{detail.garageName}</Text>
+                    <Text>{detail.date}</Text>
+                    <Text>{detail.firstTime} - {detail.lastTime}</Text>
+                </View>
+                <View style={styles.delButton}>
+                    <Button title="Remover"
+                        onPress={() => navigation.navigate("")} />
+                    <StatusBar style="auto" />
+                </View>
             </View>
         </View>
     );
@@ -45,8 +52,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         margin: 10,
         color: "black",
-        // alignItems: "center",
-        // justifyContent: "center",
         alignSelf: "center",
         color: "black",
     },
@@ -55,6 +60,11 @@ const styles = StyleSheet.create({
         color: "black",
         padding: 10,
     },
+    delButton: {
+        margin: 20,
+        width: "30%",
+        alignSelf: "center",
+    }
 });
 
 export default Detail;
