@@ -10,23 +10,12 @@ const Detail = ({ detail }) => {
             <View style={styles.center}>
                 <Image source={{ uri: detail.carImage }} style={styles.carImage} />
             </View>
-            <View>
-                <Text style={styles.text2}>{detail.carOwner}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{detail.licensePlate}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{detail.garageName}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{detail.date}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{detail.firstTime}</Text>
-            </View>
-            <View>
-                <Text style={styles.text2}>{detail.lastTime}</Text>
+            <View style={styles.text2}>
+                <Text>{detail.carOwner}</Text>
+                <Text>{detail.licensePlate}</Text>
+                <Text>{detail.garageName}</Text>
+                <Text>{detail.date}</Text>
+                <Text>{detail.firstTime} - {detail.lastTime}</Text>
             </View>
         </View>
     );
@@ -35,9 +24,9 @@ const Detail = ({ detail }) => {
 const styles = StyleSheet.create({
     container: {
         marginBottom: 35,
-        backgroundColor: "#f5f5f5",
-        width: "90%",
-        borderRadius: 30,
+        backgroundColor: "white",
+        width: "100%",
+        borderRadius: 20,
         alignSelf: "center",
     },
     center: {
@@ -48,18 +37,23 @@ const styles = StyleSheet.create({
     },
     carImage: {
         width: "70%",
-        height: 300,
+        height: 200,
         resizeMode: "stretch",
     },
     text: {
         fontSize: 20,
         fontWeight: "bold",
-        marginBottom: 5,
+        margin: 10,
+        color: "black",
+        // alignItems: "center",
+        // justifyContent: "center",
+        alignSelf: "center",
         color: "black",
     },
     text2: {
         fontSize: 16,
         color: "black",
+        padding: 10,
     },
 });
 
