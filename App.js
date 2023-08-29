@@ -11,7 +11,8 @@ const garages = [
   {
     nameGarage: "Estacionamento da Bento",
     imageGarage:
-      "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
+      "https://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2020/09/FOTO-BRENO-ESAKI-AG%C3%8ANCIA-SA%C3%9ADE-1-1-768x512.jpg",
+    adressGarage: "Rua dos Técnicos Agrícolass",
   }
 ];
 
@@ -30,9 +31,7 @@ const details = [
     carOwner: "Carlos Cardozo",
     licensePlate: "MIH8505",
     carImage: "https://www.pngmart.com/files/4/Honda-Civic-PNG-Photo.png",
-    date: "24/04/22",
-    firstTime: "16:00",
-    lastTime: "17:00",
+    dateTime: "24/04/22 - 16:00",
     garageName: "Estacionamento da Bento",
   }
 ];
@@ -75,18 +74,6 @@ const ListDetails = () => {
   );
 };
 
-const ListNewCars = () => {
-  const [newcarslist, setNewCarsList] = useState(newcars);
-
-  return (
-    <ScrollView style={styles.scroll}>
-      {newcarslist.map((newcar, index) => (
-        <Detail key={index} newcar={newcar} />
-      ))}
-    </ScrollView>
-  );
-};
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -96,7 +83,7 @@ export default function App() {
         <Stack.Screen name="Garagem" component={ListGarages} />
         <Stack.Screen name="Carros" component={ListCars} />
         <Stack.Screen name="Detalhes" component={ListDetails} />
-        <Stack.Screen name="Novo Carro" component={ListNewCars} />
+        <Stack.Screen name="Novo Carro" component={NewCar} />
       </Stack.Navigator>
     </NavigationContainer>
   );

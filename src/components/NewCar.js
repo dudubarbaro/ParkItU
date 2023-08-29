@@ -1,22 +1,35 @@
-import React from "react";
-import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar } from "react-native"
+import React, { useEffect, useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { View, Text, StyleSheet, Button, TextInput, Image } from "react-native"
+import newCarService from '/src/components/services/newCar';
 
-// import { useEffect, useState } from 'react';
+
+// const [newcars, setNewCars] = useState([]);
 
 
-// useEffect(async () => {
-//     const data = await newcarService.getAllNewCars();
-//     setNewCars(data);
-// }, []);
+// const ListNewCars = () => {
+//     const [newcarslist, setNewCarsList] = useState(newcars);
 
-// async function saveNewCars() {
-//     const data = await newcarService.getAllNewCars();
-//     setNewCars(data);
-// }
+//     return (
+//         <ScrollView style={styles.scroll}>
+//             {newcarslist.map((newcar, index) => (
+//                 <Detail key={index} newcar={newcar} />
+//             ))}
+//         </ScrollView>
+//     );
+// };
 
-// const [newcar, setNewCars] = useState([]);
 
-const NewCar = ({ newcar, navigation }) => {
+const NewCar = ({ newcars, navigation }) => {
+    useEffect(async () => {
+        const data = await newCarService.getAllNewCars();
+        setNewCars(data);
+    }, []);
+
+    async function saveNewCars() {
+        const data = await newCarService.getAllNewCars();
+        setNewCars(data);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.form}>
@@ -48,10 +61,10 @@ const NewCar = ({ newcar, navigation }) => {
                         placeholder={'Digite a hora e data'}
                     >{newcar.dateTime}</TextInput>
                 ))}
-                <Image source={{ uri: newcar.carImage }} style={styles.carImage} />
+                {/* <Image source={{ uri: newcar.carImage }} style={styles.carImage} /> */}
                 <View>
                     <Button
-                        title='Salvar'
+                        title='Enviar'
                         onPress={() => saveNewCars()}
                     />
                     <StatusBar style="auto" />
@@ -60,6 +73,7 @@ const NewCar = ({ newcar, navigation }) => {
         </View>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {
@@ -73,6 +87,7 @@ const styles = StyleSheet.create({
         width: "70%",
         height: 200,
         resizeMode: "stretch",
+        marginBottom: 20,
     },
     form: {
         margin: 45,

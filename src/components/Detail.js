@@ -15,8 +15,7 @@ const Detail = ({ detail, navigation }) => {
                     <Text>{detail.carOwner}</Text>
                     <Text>{detail.licensePlate}</Text>
                     <Text>{detail.garageName}</Text>
-                    <Text>{detail.date}</Text>
-                    <Text>{detail.firstTime} - {detail.lastTime}</Text>
+                    <Text>{detail.dateTime}</Text>
                 </View>
                 <View style={styles.delButton}>
                     <Button title="Remover"
@@ -46,6 +45,7 @@ const styles = StyleSheet.create({
         width: "70%",
         height: 200,
         resizeMode: "stretch",
+        marginBottom: 20,
     },
     text: {
         fontSize: 20,
