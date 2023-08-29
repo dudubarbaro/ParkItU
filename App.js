@@ -12,7 +12,7 @@ const garages = [
     nameGarage: "Estacionamento da Bento",
     imageGarage:
       "https://www.agenciabrasilia.df.gov.br/wp-conteudo/uploads/2020/09/FOTO-BRENO-ESAKI-AG%C3%8ANCIA-SA%C3%9ADE-1-1-768x512.jpg",
-    adressGarage: "Rua dos Técnicos Agrícolass",
+    adressGarage: "Rua dos Técnicos Agrícolas",
   }
 ];
 
