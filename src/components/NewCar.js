@@ -1,37 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, StyleSheet, Button, TextInput, Image } from "react-native"
-// import newCarService from '/src/components/services/newCar';
-
-
-// const [newcars, setNewCars] = useState([]);
-
-
-// const ListNewCars = () => {
-//     const [newcarslist, setNewCarsList] = useState(newcars);
-
-//     return (
-//         <ScrollView style={styles.scroll}>
-//             {newcarslist.map((newcar, index) => (
-//                 <Detail key={index} newcar={newcar} />
-//             ))}
-//         </ScrollView>
-//     );
-// };
+import axios from 'axios';
 
 export default function NewCar() {
-
-    // }
-
-
-    // const NewCar = ({ newcars, navigation }) => {
+    async function postNewCar() {
+        await axios
+            .post("http://127.0.0.1:8000/api/cars/", newCar)
+            .then((response) => console.log(response));
+    }
 
     const [newCar, setNewCar] = useState({})
 
-    async function saveNewCars() {
-        const data = await newCarService.getAllNewCars();
-        setNewCars(data);
-    }
     return (
         <View style={styles.container}>
             <View style={styles.form}>
@@ -39,35 +19,28 @@ export default function NewCar() {
                 >Cadastro</Text>
 
                 <TextInput
-                    onChangeText={(nome) => setNewCar({ ...newCar, nome })}
+                    onChangeText={(carName) => setNewCar({ ...newCar, carName })}
                     style={styles.text}
                     label={'nome'}
                     placeholder={'Digite o nome do carro'}
                 ></TextInput>
                 <TextInput
-
+                    onChangeText={(carOwner) => setNewCar({ ...newCar, carOwner })}
                     style={styles.text}
                     label={'dono'}
-                    placeholder={'Digite p nome do dono'}
+                    placeholder={'Digite o nome do dono'}
                 ></TextInput>
                 <TextInput
-
+                    onChangeText={(licensePlate) => setNewCar({ ...newCar, licensePlate })}
                     style={styles.text}
                     label={'placa'}
                     placeholder={'Digite a placa'}
                 ></TextInput>
-                <TextInput
-
-                    style={styles.text}
-                    label={'dataHora'}
-                    placeholder={'Digite a hora e data'}
-                ></TextInput>
-
                 {/* <Image source={{ uri: newcar.carImage }} style={styles.carImage} /> */}
                 <View>
                     <Button
                         title='Enviar'
-                        onPress={() => saveNewCars()}
+                        onPress={() => postNewCar()}
                     />
                     <StatusBar style="auto" />
                 </View>
@@ -111,5 +84,3 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
 });
-
-// export default NewCar;
