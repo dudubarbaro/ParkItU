@@ -2,10 +2,24 @@ import React from "react";
 import { View, Text, Image, StyleSheet, StatusBar } from "react-native"
 import { Button } from "react-native";
 
-const Car = ({ car, navigation }) => {
-    return (
+import carService from '/src/components/services/cars.js';
+import { useEffect, useState } from 'react';
 
-        <View >
+export default function Car({ car, navigation }) {
+    const [cars, setCars] = useState([]);
+
+    useEffect(async () => {
+        const data = await carService.getAllCars();
+        setCars(data);
+    }, []);
+
+    async function deleteCars(car) {
+        const data = await carService.getAllCars(car);
+        setCars(data);
+    }
+
+    return (
+        <View>
             <View style={styles.addButton}>
                 <Button
                     title="+"
@@ -13,173 +27,18 @@ const Car = ({ car, navigation }) => {
                 />
             </View>
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
                 <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
+                    {cars.map((car) => (
+                        <Text >{car.carName}</Text>,
+                        <Text>{car.carOwner}</Text>,
+                        <Text >{car.licensePlate}</Text>,
+                        <Text>{car.dateTime}</Text>
+                        // <Image source={{ uri: car.carImage }} style={styles.carImage} />
+                    ))}
                 </View>
                 <Button
-                    title="Mais Informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
+                    title="Remover"
+                    onPress={() => deleteCars()}
                 />
                 <StatusBar style="auto" />
             </View>
@@ -195,23 +54,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignSelf: "center",
     },
-    center: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingTop: 20,
-    },
     carImage: {
         width: "70%",
         height: 200,
         resizeMode: "stretch",
-    },
-    text: {
-        fontSize: 20,
-        fontWeight: "bold",
-        margin: 10,
-        color: "black",
-        alignSelf: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: 20,
     },
     text2: {
         marginTop: 5,
@@ -224,5 +74,3 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     }
 });
-
-export default Car;

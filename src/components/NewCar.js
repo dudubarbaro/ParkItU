@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, StyleSheet, Button, TextInput, Image } from "react-native"
+import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity } from "react-native"
 import axios from 'axios';
+// import { Camera, CameraType } from 'expo-camera';
 
 export default function NewCar() {
     async function postNewCar() {
@@ -11,13 +12,18 @@ export default function NewCar() {
     }
 
     const [newCar, setNewCar] = useState({})
+    // const [type, setType] = useState(CameraType.back);
+    // const [permission, requestPermission] = Camera.useCameraPermissions();
+
+    // function toggleCameraType() {
+    //     setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
+    // }
 
     return (
         <View style={styles.container}>
             <View style={styles.form}>
                 <Text style={styles.h1}
                 >Cadastro</Text>
-
                 <TextInput
                     onChangeText={(carName) => setNewCar({ ...newCar, carName })}
                     style={styles.text}
@@ -36,7 +42,13 @@ export default function NewCar() {
                     label={'placa'}
                     placeholder={'Digite a placa'}
                 ></TextInput>
-                {/* <Image source={{ uri: newcar.carImage }} style={styles.carImage} /> */}
+                {/* <Camera style={styles.camera} type={type}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
+                            <Text style={styles.text}>Flip Camera</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Camera> */}
                 <View>
                     <Button
                         title='Enviar'
