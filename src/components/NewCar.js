@@ -1,58 +1,58 @@
-import React from "react";
-import { View, Text, StyleSheet, Button, TextInput, Image, StatusBar } from "react-native"
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity } from "react-native"
+import axios from 'axios';
+// import { Camera, CameraType } from 'expo-camera';
 
-// import { useEffect, useState } from 'react';
+export default function NewCar() {
+    async function postNewCar() {
+        await axios
+            .post("http://127.0.0.1:8000/api/cars/", newCar)
+            .then((response) => console.log(response));
+    }
 
+    const [newCar, setNewCar] = useState({})
+    // const [type, setType] = useState(CameraType.back);
+    // const [permission, requestPermission] = Camera.useCameraPermissions();
 
-// useEffect(async () => {
-//     const data = await newcarService.getAllNewCars();
-//     setNewCars(data);
-// }, []);
+    // function toggleCameraType() {
+    //     setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
+    // }
 
-// async function saveNewCars() {
-//     const data = await newcarService.getAllNewCars();
-//     setNewCars(data);
-// }
-
-// const [newcar, setNewCars] = useState([]);
-
-const NewCar = ({ newcar, navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.form}>
                 <Text style={styles.h1}
                 >Cadastro</Text>
-                {newcars.map((newcar) => (
-                    <TextInput
-                        key={newcar.id}
-                        style={styles.text}
-                        label={'nome'}
-                        placeholder={'Digite o nome do carro'}
-                    >{newcar.carName}</TextInput>,
-                    <TextInput
-                        key={newcar.id}
-                        style={styles.text}
-                        label={'dono'}
-                        placeholder={'Digite p nome do dono'}
-                    >{newcar.carOwner}</TextInput>,
-                    <TextInput
-                        key={newcar.id}
-                        style={styles.text}
-                        label={'placa'}
-                        placeholder={'Digite a placa'}
-                    >{newcar.licensePlate}</TextInput>,
-                    <TextInput
-                        key={newcar.id}
-                        style={styles.text}
-                        label={'dataHora'}
-                        placeholder={'Digite a hora e data'}
-                    >{newcar.dateTime}</TextInput>
-                ))}
-                <Image source={{ uri: newcar.carImage }} style={styles.carImage} />
+                <TextInput
+                    onChangeText={(carName) => setNewCar({ ...newCar, carName })}
+                    style={styles.text}
+                    label={'nome'}
+                    placeholder={'Digite o nome do carro'}
+                ></TextInput>
+                <TextInput
+                    onChangeText={(carOwner) => setNewCar({ ...newCar, carOwner })}
+                    style={styles.text}
+                    label={'dono'}
+                    placeholder={'Digite o nome do dono'}
+                ></TextInput>
+                <TextInput
+                    onChangeText={(licensePlate) => setNewCar({ ...newCar, licensePlate })}
+                    style={styles.text}
+                    label={'placa'}
+                    placeholder={'Digite a placa'}
+                ></TextInput>
+                {/* <Camera style={styles.camera} type={type}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
+                            <Text style={styles.text}>Flip Camera</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Camera> */}
                 <View>
                     <Button
-                        title='Salvar'
-                        onPress={() => saveNewCars()}
+                        title='Enviar'
+                        onPress={() => postNewCar()}
                     />
                     <StatusBar style="auto" />
                 </View>
@@ -60,6 +60,7 @@ const NewCar = ({ newcar, navigation }) => {
         </View>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
         width: "70%",
         height: 200,
         resizeMode: "stretch",
+        marginBottom: 20,
     },
     form: {
         margin: 45,
@@ -94,5 +96,3 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
     },
 });
-
-export default NewCar;

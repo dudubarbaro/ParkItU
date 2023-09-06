@@ -8,6 +8,7 @@ const Garage = ({ garage, navigation }) => {
       <View style={styles.container}>
         <View>
           <Text style={styles.text}>{garage.nameGarage}</Text>
+          <Text style={styles.text2}>{garage.adressGarage}</Text>
         </View>
         <View style={styles.center}>
           <Image source={{ uri: garage.imageGarage }} style={styles.imageGarage} />
@@ -37,11 +38,16 @@ const styles = StyleSheet.create({
     width: "70%",
     height: 200,
     resizeMode: "stretch",
+    marginBottom: 20,
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     margin: 10,
+    color: "black",
+    alignSelf: "center",
+  },
+  text2: {
     color: "black",
     alignSelf: "center",
   },

@@ -2,10 +2,24 @@ import React from "react";
 import { View, Text, Image, StyleSheet, StatusBar } from "react-native"
 import { Button } from "react-native";
 
-const Car = ({ car, navigation }) => {
-    return (
+import carService from '/src/components/services/cars.js';
+import { useEffect, useState } from 'react';
 
-        <View >
+export default function Car({ car, navigation }) {
+    const [cars, setCars] = useState([]);
+
+    useEffect(async () => {
+        const data = await carService.getAllCars();
+        setCars(data);
+    }, []);
+
+    async function deleteCars(car) {
+        const data = await carService.getAllCars(car);
+        setCars(data);
+    }
+
+    return (
+        <View>
             <View style={styles.addButton}>
                 <Button
                     title="+"
@@ -13,177 +27,24 @@ const Car = ({ car, navigation }) => {
                 />
             </View>
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
+                <View style={styles.card}>
+                    {cars.map((car, index) => (
+                        <View style={styles.content} key={index}>
+                            <Text style={styles.text}>{car.carName}</Text>
+                            <Text style={styles.text2}>{car.carOwner}</Text>
+                            <Text style={styles.text2}>{car.licensePlate}</Text>
+                            <Text style={styles.text2}>{car.dateTime}</Text>
+                            <Button
+                                title="Remover"
+                                onPress={() => deleteCars()}
+                            />
+                        </View>
+                    ))}
                 </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="Mais Informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
             </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
 
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-            </View>
-            <View style={styles.container}>
-                <View>
-                    <Text style={styles.text}>{car.carName}</Text>
-                </View>
-                <View style={styles.text2}>
-                    <Text>{car.carOwner}</Text>
-                    <Text >{car.licensePlate}</Text>
-                </View>
-
-                <View style={styles.center}>
-                    <Image source={{ uri: car.carImage }} style={styles.carImage} />
-                </View>
-                <Button
-                    title="mais informações"
-                    onPress={() => navigation.navigate("Detalhes")}
-                />
-                <StatusBar style="auto" />
-            </View>
-        </View >
+            <StatusBar style="auto" />
+        </View>
     );
 };
 
@@ -195,34 +56,35 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignSelf: "center",
     },
-    center: {
+    carImage: {
+        width: "70%",
+        height: 200,
+        resizeMode: "stretch",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         paddingTop: 20,
     },
-    carImage: {
-        width: "70%",
-        height: 200,
-        resizeMode: "stretch",
-    },
-    text: {
-        fontSize: 20,
-        fontWeight: "bold",
-        margin: 10,
-        color: "black",
-        alignSelf: "center",
-    },
     text2: {
         marginTop: 5,
         marginLeft: 10,
         color: "black",
+        height: "100%",
     },
     addButton: {
         marginBottom: 20,
         width: "30%",
         alignSelf: "center",
+    },
+    text: {
+        alignSelf: "center",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    content: {
+        padding: 10,
+    },
+    card: {
+        margin: 30
     }
 });
-
-export default Car;
