@@ -27,22 +27,24 @@ export default function Car({ car, navigation }) {
                 />
             </View>
             <View style={styles.container}>
-                <View style={styles.text2}>
-                    {cars.map((car) => (
-                        <Text >{car.carName}</Text>,
-                        <Text>{car.carOwner}</Text>,
-                        <Text >{car.licensePlate}</Text>,
-                        <Text>{car.dateTime}</Text>
-                        // <Image source={{ uri: car.carImage }} style={styles.carImage} />
+                <View style={styles.card}>
+                    {cars.map((car, index) => (
+                        <View style={styles.content} key={index}>
+                            <Text style={styles.text}>{car.carName}</Text>
+                            <Text style={styles.text2}>{car.carOwner}</Text>
+                            <Text style={styles.text2}>{car.licensePlate}</Text>
+                            <Text style={styles.text2}>{car.dateTime}</Text>
+                            <Button
+                                title="Remover"
+                                onPress={() => deleteCars()}
+                            />
+                        </View>
                     ))}
                 </View>
-                <Button
-                    title="Remover"
-                    onPress={() => deleteCars()}
-                />
-                <StatusBar style="auto" />
             </View>
-        </View >
+
+            <StatusBar style="auto" />
+        </View>
     );
 };
 
@@ -67,10 +69,22 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 10,
         color: "black",
+        height: "100%",
     },
     addButton: {
         marginBottom: 20,
         width: "30%",
         alignSelf: "center",
+    },
+    text: {
+        alignSelf: "center",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    content: {
+        padding: 10,
+    },
+    card: {
+        margin: 30
     }
 });
