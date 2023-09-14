@@ -2,19 +2,19 @@ import React from "react";
 import { View, Text, Image, StyleSheet, StatusBar } from "react-native"
 import { Button } from "react-native";
 
-import carService from '/src/components/services/cars.js';
+import CarService from '/src/components/services/cars.js';
 import { useEffect, useState } from 'react';
 
 export default function Car({ car, navigation }) {
     const [cars, setCars] = useState([]);
 
     useEffect(async () => {
-        const data = await carService.getAllCars();
+        const data = await CarService.getAllCars();
         setCars(data);
     }, []);
 
     async function deleteCars(car) {
-        const data = await carService.getAllCars(car);
+        const data = await CarService.getAllCars(car);
         setCars(data);
     }
 

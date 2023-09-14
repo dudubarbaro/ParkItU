@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function NewCar() {
     async function postNewCar() {
         await axios
-            .post("http://127.0.0.1:8000/api/cars/", newCar)
+            .post("https://backendparkitu-dev.fl0.io/cars/", newCar)
             .then((response) => console.log(response));
     }
 
