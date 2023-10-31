@@ -8,7 +8,7 @@ export default function NewCar() {
     async function postNewCar() {
         await axios
             .post("https://backendparkitu-dev.fl0.io/api/cars/", newCar)
-            .then((response) => console.log(response));
+            .then((response));
     }
 
     const [newCar, setNewCar] = useState({})

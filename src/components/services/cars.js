@@ -6,7 +6,7 @@ class CarService {
         return response.data
     }
     async deleteCar(car) {
-        const response = await api.delete('/cars/${car.id}/')
+        const response = await api.delete('/cars/${cars.id}/')
         return response.data
     }
 }

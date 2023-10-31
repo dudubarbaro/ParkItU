@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, StatusBar } from "react-native"
 import { Button } from "react-native";
-
 import CarService from '/src/components/services/cars.js';
 import { useEffect, useState } from 'react';
+import axios from "axios";
 
 export default function Car({ car, navigation }) {
     const [cars, setCars] = useState([]);
@@ -13,9 +13,10 @@ export default function Car({ car, navigation }) {
         setCars(data);
     }, []);
 
-    async function deleteCars(car) {
-        const data = await CarService.getAllCars(car);
-        setCars(data);
+    async function deleteCar(car) {
+        await axios
+            .delete("https://backendparkitu-dev.fl0.io/api/cars/${car.id}/")
+            .then((response) => console.log(response));
     }
 
     return (
@@ -36,7 +37,7 @@ export default function Car({ car, navigation }) {
                             <Text style={styles.text2}>{car.dateTime}</Text>
                             <Button
                                 title="Remover"
-                                onPress={() => deleteCars()}
+                                onPress={() => deleteCar()}
                             />
                         </View>
                     ))}
