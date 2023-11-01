@@ -9,7 +9,7 @@ export default function Car({ car, navigation }) {
     const [cars, setCars] = useState([]);
 
     useEffect(async () => {
-        const data = await carService.getAllCars();
+        const data = await carService.getAllCars(car);
         setCars(data);
     }, []);
 
